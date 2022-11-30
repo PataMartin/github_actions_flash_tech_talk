@@ -13,9 +13,9 @@ jobs:
       #Install linter dependencies
       - run: pip3 install black==22.3.0 flake8==3.7.9
       #Run Flake8
-      - run: flake8 **/*.py
+      - run: flake8 *.py
       #Run Black
-      - run: black **/*.py
+      - run: black -check *.py
   test:
     runs-on: ubuntu-latest
     steps:
