@@ -15,7 +15,7 @@ jobs:
       #Run Flake8
       - run: flake8 *.py
       #Run Black
-      - run: black -check *.py
+      - run: black --check *.py
   test:
     runs-on: ubuntu-latest
     steps:
