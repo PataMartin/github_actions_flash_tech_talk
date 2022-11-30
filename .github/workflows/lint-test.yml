@@ -1,0 +1,29 @@
+on:
+  pull_request:
+      branches:
+          - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      #Install linter dependencies
+      - run: pip3 install black==22.3.0 flake8==3.7.9
+      #Run Flake8
+      - run: flake8 **/*.py
+      #Run Black
+      - run: black **/*.py
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+    #Install dependencies
+      - run: pip3 install -r requirements.txt
+    #Run unit tests
+      - run: python3 -m unittest test/test_*.py
