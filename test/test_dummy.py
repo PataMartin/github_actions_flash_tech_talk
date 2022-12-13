@@ -11,6 +11,6 @@ class TestDummy(unittest.TestCase):
         This test will always pass.
         """
         self.assertTrue(
-            True,
-            msg="This test should always pass"
+            False,
+            msg="This test will always fail"
         )
